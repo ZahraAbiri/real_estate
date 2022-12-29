@@ -26,5 +26,5 @@ class User(models.Model):
         verbose_name = 'کاربر'
 
     def __str__(self):
-        return self.username + ":" + self.email + ":" + self.phone_number + ":" + self.last_name
+        return self.first_name+":" + self.last_name
 
