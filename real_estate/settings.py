@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'user',
     'apartemant',
     'address',
-    'shop'
+    'shop',
+    'contract'
 
 ]
 
