@@ -8,6 +8,8 @@ class House(models.Model):
     apartment_status = [
         ('rent', 'Rent'),
         ('sell', 'Sell'),
+        ('active', 'active'),
+        ('inactive', 'inactive'),
     ]
     phone_status = [
         ('active', 'Active'),
@@ -28,6 +30,9 @@ class House(models.Model):
     phoneStatuses = models.CharField(choices=phone_status, max_length=15)
     address_aprtment = models.ForeignKey(Address, verbose_name='apertment_id', related_name='home_address',
                                          on_delete=models.CASCADE, null=True)
+    start_date=models.DateField(auto_now=True)
+    end_date=models.DateField(auto_now=True)
+
 
     def __str__(self):
         return str(self.floor) + ":" + self.owner.username + ":" + self.apartmentStatuses + ":" + self.price
