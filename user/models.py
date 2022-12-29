@@ -23,7 +23,7 @@ class User(models.Model):
 
 
     class Meta:
-        verbose_name = 'کاربر'
+        verbose_name = 'کاربران'
 
     def __str__(self):
         return self.first_name+":" + self.last_name

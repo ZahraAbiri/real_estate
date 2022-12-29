@@ -3,6 +3,8 @@
 # تعداد طبقات - آدرس - تلفن فعال/غیرفعال - مبلغ رهن - مبلغ اجاره -
 # مبلغ فروش - فروشی/استیجاری - پارکینگ - آسانسور - استخر
 # Create your models here.
+from datetime import datetime
+
 from django.db import models
 # from django.contrib.auth.hashers import check_password
 
@@ -45,8 +47,8 @@ class Apartment(models.Model):
     phoneStatuses = models.CharField(choices=phone_status, max_length=15)
     address_aprtment = models.ForeignKey(Address, verbose_name='apertment_id', related_name='Address',
                                          on_delete=models.CASCADE, null=True)
-    start_date = models.DateField(auto_now=True)
-    end_date = models.DateField(auto_now=True)
+    start_date = models.DateField(default=datetime.now(),null=True)
+    end_date = models.DateField(default=datetime.now(),null=True)
 
     def __str__(self):
         return str(self.floor) + ":" + self.owner.username + ":" + self.apartmentStatuses + ":" + self.price

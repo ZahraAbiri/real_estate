@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from django.db import models
 # مشخصه ها: قیمت -  مالک - مستاجر - متراژ - آدرس - تلفن فعال/غیرفعال
 # - مبلغ رهن - مبلغ اجاره - مبلغ فروش - فروشی/استیجاری
@@ -34,8 +36,8 @@ class Shop(models.Model):
     phoneStatuses = models.CharField(choices=phone_status, max_length=15)
     address_aprtment = models.ForeignKey(Address, verbose_name='apertment_id', related_name='shop_address',
                                          on_delete=models.CASCADE, null=True)
-    start_date = models.DateField(auto_now=True)
-    end_date = models.DateField(auto_now=True)
+    start_date = models.DateField(default=datetime.now(),null=True)
+    end_date = models.DateField(default=datetime.now(),null=True)
 
     def __str__(self):
         return self.owner.username + ":" + self.shopStatuses + ":" + self.price
