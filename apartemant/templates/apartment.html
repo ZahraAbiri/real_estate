@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>apartment</title>
+</head>
+<body>
+{% for a in apartemants %}
+    {{ a.price }}
+    {{ a.floor }}
+    {{ a.phone }}
+    {{ a.apartmentStatuses }}
+{% endfor %}
+</body>
+</html>
