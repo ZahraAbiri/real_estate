@@ -7,9 +7,9 @@ from apartemant.models import Apartment
 
 def show_apartment(request):
     apartemants = Apartment.objects.all()
+    prices=Apartment.objects.filter(price=200000)
 
     return render(request, 'apartment.html', {'apartemants': apartemants})
-
 
 def filter_reserve_apartment():
     apartemant_status = Apartment.objects.filter(apartmentStatuses='inactive')
@@ -57,6 +57,9 @@ def update_apartment(request, data, a_id):
         phoneStatuses=data['phoneStatuses'],
         address_aprtment=data['address_aprtment']
         )
+
+
+
     # apartemant = Apartment.objects.get(pk=a_id)
     # apartemant.price = data['price']
     # apartemant.price = data['price'],
