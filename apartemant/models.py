@@ -29,6 +29,7 @@ class Apartment(models.Model):
         ('active', 'Active'),
         ('inactive', 'Inactive'),
     ]
+    # n
     price = models.CharField(max_length=25, null=False)
     owner = models.ForeignKey(User, verbose_name='owner_id', related_name='owner_user',
                               on_delete=models.CASCADE, null=True)
